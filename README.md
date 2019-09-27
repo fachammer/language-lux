@@ -1,3 +1,3 @@
 # language-lux
 
-Atom language package for the Lux programming language
+Atom language support for the Lux programming language
