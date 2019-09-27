@@ -1,0 +1,17 @@
+{
+  "name": "language-lux",
+  "version": "0.0.0",
+  "description": "A short description of your language package",
+  "keywords": [
+    "language",
+    "grammar"
+  ],
+  "repository": "https://github.com/atom/language-lux",
+  "license": "MIT",
+  "engines": {
+    "atom": ">=1.0.0 <2.0.0"
+  },
+  "dependencies": {
+    "tree-sitter-lux": "^1.1.1"
+  }
+}

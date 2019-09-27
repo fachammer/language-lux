@@ -1,0 +1,31 @@
+scopeName: 'source.lux'
+name: 'Lux'
+
+fileTypes: ['lux']
+
+type: 'tree-sitter'
+parser: 'tree-sitter-lux'
+scopes:
+  'lux': 'source.lux'
+  'comment': 'comment.line'
+  'bit': [
+    {exact: '#0', scopes: 'constant.language.boolean.false'},
+    {exact: '#1', scopes: 'constant.language.boolean.true'}
+  ]
+  'natural, integer, revolution, fraction': 'constant.numeric'
+  'text': 'string.quoted'
+  'tag': 'constant.keyword.clojure'
+  'form > identifier:nth-child(1)': [
+    {match: '^([^:]+:|case)$', scopes: 'keyword.control'}
+    'entity.name.function'
+  ]
+  'ERROR': 'invalid.illegal'
+
+comments:
+  start: '## '
+
+folds: [
+  {type: 'form'},
+  {type: 'tuple'},
+  {type: 'record'}
+]
