@@ -2,5 +2,5 @@ steps:
 - bash: "curl -L -s https://github.com/atom/atom/releases/download/v1.40.1/atom-amd64.deb -H 'Accept: application/octet-stream' -o atom-amd64.deb"
   displayName: download atom
 - bash: |
-    dpkg-deb -x atom-amd64.deb "tmp/atom"
+    dpkg-deb -x atom-amd64.deb "$(Agent.ToolsDirectory)/atom"
   displayName: install atom

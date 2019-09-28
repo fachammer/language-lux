@@ -14,7 +14,7 @@ steps:
       versionSpec: 11.x
     displayName: install node
   - template: install-apm.yaml
-  - bash: tmp/atom/usr/bin/apm ci
+  - bash: $(Agent.ToolsDirectory)/atom/usr/bin/apm ci
     displayName: install module
   - bash: npx semantic-release
     displayName: semantic release
