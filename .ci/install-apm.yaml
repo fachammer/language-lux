@@ -2,11 +2,5 @@ steps:
 - bash: "curl -L -s https://github.com/atom/atom/releases/download/v1.40.1/atom-amd64.deb -H 'Accept: application/octet-stream' -o atom-amd64.deb"
   displayName: download atom
 - bash: |
-    dpkg-deb -x atom-amd64.deb "${HOME}/atom"
-    export ATOM_SCRIPT_NAME="atom"
-    export APM_SCRIPT_NAME="apm"
-    export ATOM_SCRIPT_PATH="${HOME}/atom/usr/bin/${ATOM_SCRIPT_NAME}"
-    export APM_SCRIPT_PATH="${HOME}/atom/usr/bin/${APM_SCRIPT_NAME}"
-    export NPM_SCRIPT_PATH="${HOME}/atom/usr/share/${ATOM_SCRIPT_NAME}/resources/app/apm/node_modules/.bin/npm"
-    export PATH="${PATH}:${HOME}/atom/usr/bin"
+    dpkg-deb -x atom-amd64.deb "tmp/atom"
   displayName: install atom
