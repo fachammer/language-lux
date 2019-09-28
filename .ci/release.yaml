@@ -14,12 +14,11 @@ steps:
       versionSpec: 11.x
     displayName: install node
   - template: install-apm.yaml
-  - bash: $(Agent.ToolsDirectory)/atom/usr/bin/apm ci
+  - bash: apm ci
     displayName: install module
   - bash: npx semantic-release
     displayName: semantic release
     env:
-      PATH: "$(PATH):$(Agent.ToolsDirectory)/atom/usr/bin/"
       GH_TOKEN: $(GH_TOKEN)
       ATOM_ACCESS_TOKEN: $(ATOM_TOKEN)
       BUILD_SOURCEBRANCHNAME: $(Build.SourceBranchName)
