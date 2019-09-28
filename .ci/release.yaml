@@ -1,0 +1,24 @@
+variables:
+- group: tokens
+
+trigger:
+- master
+
+pr: none
+
+pool:
+  vmImage: ubuntu-latest
+steps:
+  - task: NodeTool@0
+    inputs:
+      versionSpec: 11.x
+    displayName: install node
+  - template: install-apm.yaml
+  - bash: apm ci
+    displayName: install module
+  - bash: npx semantic-release
+    displayName: semantic release
+    env:
+      GH_TOKEN: $(GH_TOKEN)
+      ATOM_ACCESS_TOKEN: $(ATOM_TOKEN)
+      BUILD_SOURCEBRANCHNAME: $(Build.SourceBranchName)

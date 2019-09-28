@@ -1,0 +1,37 @@
+variables:
+- group: tokens
+
+trigger: none
+
+jobs:
+- job: commit_verifier
+  displayName: verify commits
+  pool:
+    vmImage: ubuntu-latest
+  steps:
+  - task: NodeTool@0
+    inputs:
+      versionSpec: 11.x
+    displayName: install node
+  - template: install-apm.yaml  
+  - bash: apm ci && npx commitlint --from origin/master --to HEAD
+    displayName: verify commits
+- job: dryrun_release
+  displayName: dry run release
+  pool:
+    vmImage: ubuntu-latest
+  steps:
+    - task: NodeTool@0
+      inputs:
+        versionSpec: 11.x
+      displayName: install node
+    - template: install-apm.yaml
+    - bash: apm ci
+      displayName: install module
+    - bash: npx semantic-release --dry-run --ci false --branch $(System.PullRequest.TargetBranch)
+      displayName: semantic release dry run
+      env:
+        GH_TOKEN: $(GH_TOKEN)
+        ATOM_ACCESS_TOKEN: $(ATOM_TOKEN)
+        SYSTEM_PULLREQUEST_TARGETBRANCH: $(System.PullRequest.TargetBranch)
+        BUILD_SOURCEBRANCHNAME: $(Build.SourceBranchName)
