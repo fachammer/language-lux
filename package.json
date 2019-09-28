@@ -6,7 +6,7 @@
     "language",
     "grammar"
   ],
-  "repository": "https://github.com/atom/language-lux",
+  "repository": "https://github.com/fachammer/language-lux",
   "license": "MIT",
   "engines": {
     "atom": ">=1.0.0 <2.0.0"
