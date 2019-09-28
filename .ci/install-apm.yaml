@@ -4,3 +4,6 @@ steps:
 - bash: |
     dpkg-deb -x atom-amd64.deb "$(Agent.ToolsDirectory)/atom"
   displayName: install atom
+- bash: |
+    echo "##vso[task.setvariable variable=PATH]$PATH:$(Agent.ToolsDirectory)/atom/usr/bin/"
+  displayName: set PATH variable
