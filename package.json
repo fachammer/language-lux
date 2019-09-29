@@ -13,7 +13,7 @@
     "atom": ">=1.0.0 <2.0.0"
   },
   "dependencies": {
-    "tree-sitter-lux": "^1.1.1"
+    "tree-sitter-lux": "^2.0.0"
   },
   "devDependencies": {
     "@commitlint/cli": "^8.2.0",
