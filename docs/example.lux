@@ -1,0 +1,9 @@
+
+
+(.module: example)
+
+## a function for doing foo
+(def: #export (foo bar)
+  {#.doc "identity function"}
+  (All [a] (-> a a))
+  bar)
