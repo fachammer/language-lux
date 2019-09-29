@@ -1,6 +1,6 @@
 {
   "name": "language-lux",
-  "version": "0.0.0",
+  "version": "1.0.0",
   "description": "Lux language support in Atom",
   "keywords": [
     "lux",
